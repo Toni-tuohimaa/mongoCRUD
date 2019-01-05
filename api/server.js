@@ -6,6 +6,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const config = require('./DB.js');
 const commentsRoute = require('./comments.route');
+const recipesRoute = require('./recipes.route');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(config.DB, { useNewUrlParser: true }).then(
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use('/comments', commentsRoute);
+app.use('/recipes', recipesRoute);
 
 app.listen(PORT, function(){
   console.log('Server is running on Port:',PORT);

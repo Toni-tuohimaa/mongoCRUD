@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Create from './components/create.component';
 import Edit from './components/edit.component';
 import Index from './components/index.component';
+import Recipes from './components/recipes';
+import Add_Recipe from './components/add_recipe'
 
 class App extends Component {
   render() {
@@ -12,7 +14,7 @@ class App extends Component {
       <Router>
         <div className="container">
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <Link to={'/'} className="navbar-brand">MongoDB + React test</Link>
+            <Link to={'/'} className="navbar-brand">Food recipes</Link>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav mr-auto">
               <li className="nav-item">
@@ -24,6 +26,12 @@ class App extends Component {
                 <li className="nav-item">
                   <Link to={'/index'} className="nav-link">Comments</Link>
                 </li>
+                <li className="nav-item">
+                  <Link to={'/recipes'} className="nav-link">Recipes</Link>
+                </li>
+                <li className="nav-item">
+                  <Link to={'/add'} className="nav-link">Add recipe</Link>
+                </li>
               </ul>
             </div>
           </nav> <br/> 
@@ -32,7 +40,10 @@ class App extends Component {
                <Route exact path='/create' component={ Create } /> 
               <Route path='/edit/:id' component={ Edit } />
                <Route path='/index' component={ Index } /> 
+               <Route path='/recipes' component={ Recipes } />
+               <Route path='/add' component={ Add_Recipe } />
           </Switch>
+
         </div>
       </Router>
     );
