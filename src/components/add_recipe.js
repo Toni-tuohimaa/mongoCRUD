@@ -77,10 +77,11 @@ export default class Add_Recipe extends Component {
   onSubmit(e) {
     console.log(this.state)
 
-    /* e.preventDefault();
+     e.preventDefault();
     const obj = {
       recipe_name: this.state.recipe_name,
-      ingredients: this.state.ingredients
+      ingredients: this.state.ingredients,
+      method: this.state.method
     };
 
     console.log(obj)
@@ -89,10 +90,11 @@ export default class Add_Recipe extends Component {
     
     this.setState({
       recipe_name: '',
-      ingredients: [" "]
+      ingredients: [" "],
+      method: [{step: ""}]
     })
 
-    this.props.history.push('/recipes'); */
+    this.props.history.push('/recipes'); 
   }
  
   render() {
@@ -114,7 +116,7 @@ export default class Add_Recipe extends Component {
                 <div className="form-group">
                     <label>Ingredients: </label><br/>
                     {this.state.ingredients.map((ingredient, idx) => (
-                        <div className="input-group mb-3">
+                        <div className="input-group mb-3" key={idx}>
                             <input
                             type="text"
                             placeholder={`Ingredient #${idx + 1}`}
@@ -122,7 +124,7 @@ export default class Add_Recipe extends Component {
                             onChange={this.handleIngredientsChange(idx)}
                             className="form-control"
                             />
-                            <div class="input-group-append">
+                            <div className="input-group-append">
                             <button type="button" onClick={this.remove_ingredient(idx)} className="btn btn-danger">-</button>
                             </div>
                         </div>
@@ -132,7 +134,7 @@ export default class Add_Recipe extends Component {
                 <div className="form-group">
                     <label>Method: </label><br/>
                     {this.state.method.map((method, idx) => (
-                        <div className="input-group mb-3">
+                        <div className="input-group mb-3" key={idx}>
                             <input
                             type="text"
                             placeholder={`Step #${idx + 1}`}
@@ -140,7 +142,7 @@ export default class Add_Recipe extends Component {
                             onChange={this.handleMethodsChange(idx)}
                             className="form-control"
                             />
-                            <div class="input-group-append">
+                            <div className="input-group-append">
                             <button type="button" onClick={this.remove_method(idx)} className="btn btn-danger">-</button>
                             </div>
                         </div>

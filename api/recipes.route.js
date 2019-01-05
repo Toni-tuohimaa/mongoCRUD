@@ -1,7 +1,7 @@
 const express = require('express');
 const recipesRoutes = express.Router();
 
-// Require Comments model in our routes module
+// Require Recipes model in our routes module
 let Recipes = require('./recipes.model');
 
 // Defined store route
@@ -17,7 +17,7 @@ recipesRoutes.route('/add').post(function (req, res) {
 });
 
 // Defined get data(index or listing) route
-recipesRoutes.route('/').get(function (req, res) {
+recipesRoutes.route('/get_recipes').get(function (req, res) {
     Recipes.find(function(err, recipes){
     if(err){
       console.log(err);

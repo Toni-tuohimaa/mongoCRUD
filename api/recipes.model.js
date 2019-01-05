@@ -10,7 +10,7 @@ let Recipes = new Schema({
     type: String
   },
   method: {
-    type: String
+    type: Object
   },
 },{
     collection: 'recipes'

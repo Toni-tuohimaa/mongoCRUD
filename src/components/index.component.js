@@ -14,7 +14,7 @@ export default class Index extends Component {
     }
 
     getData = () => {
-        axios.get('http://localhost:4000/comments')
+        axios.get('http://localhost:4000/comments/get_comments')
         .then(response => {
           this.setState({ comments: response.data });
         })

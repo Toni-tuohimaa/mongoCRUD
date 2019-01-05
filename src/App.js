@@ -7,6 +7,7 @@ import Edit from './components/edit.component';
 import Index from './components/index.component';
 import Recipes from './components/recipes';
 import Add_Recipe from './components/add_recipe'
+import Recipe_Details from './components/recipe_details';
 
 class App extends Component {
   render() {
@@ -42,6 +43,7 @@ class App extends Component {
                <Route path='/index' component={ Index } /> 
                <Route path='/recipes' component={ Recipes } />
                <Route path='/add' component={ Add_Recipe } />
+               <Route path='/details' component={ Recipe_Details } />
           </Switch>
 
         </div>

@@ -17,7 +17,7 @@ commentsRoutes.route('/add').post(function (req, res) {
 });
 
 // Defined get data(index or listing) route
-commentsRoutes.route('/').get(function (req, res) {
+commentsRoutes.route('/get_comments').get(function (req, res) {
     Comments.find(function(err, comments){
     if(err){
       console.log(err);
