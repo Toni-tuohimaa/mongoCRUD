@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Recipe_Details from './recipe_details';
-import { throws } from 'assert';
 
 export default class Recipes extends Component {
 

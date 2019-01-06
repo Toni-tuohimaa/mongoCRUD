@@ -8,8 +8,10 @@ import Index from './components/index.component';
 import Recipes from './components/recipes';
 import Add_Recipe from './components/add_recipe'
 import Recipe_Details from './components/recipe_details';
+import Slideshow from './components/slideshow'
 
 class App extends Component {
+
   render() {
     return (
       <Router>
@@ -38,12 +40,13 @@ class App extends Component {
           </nav> <br/> 
 
           <Switch>
-               <Route exact path='/create' component={ Create } /> 
+              <Route path='/create' component={ Create } /> 
               <Route path='/edit/:id' component={ Edit } />
-               <Route path='/index' component={ Index } /> 
-               <Route path='/recipes' component={ Recipes } />
-               <Route path='/add' component={ Add_Recipe } />
-               <Route path='/details' component={ Recipe_Details } />
+              <Route path='/index' component={ Index } /> 
+              <Route path='/recipes' component={ Recipes } />
+              <Route path='/add' component={ Add_Recipe } />
+              <Route path='/details' component={ Recipe_Details } />
+              <Route exact path='/' component={ Slideshow } />
           </Switch>
 
         </div>

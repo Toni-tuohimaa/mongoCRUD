@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import axios from 'axios';
+import '../styles.css'
 
 class Recipe_Details extends Component {
 
@@ -24,20 +24,29 @@ class Recipe_Details extends Component {
       }
 
   render() {
-      console.log(this.props.obj)
+   // console.log(this.props)
+
+     if (this.props.collapse === "true" && this.state.collapse === false) {
+      this.toggle();
+    } 
+
+     // console.log(this.props.obj)
     return (
-      <div>
-        <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>{this.props.obj.recipe_name}</Button>
+      <React.Fragment>
+
+        {this.props.collapse === "true" ? "" : <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>{this.props.obj.recipe_name}</Button>}
+
+        {/* <Button color="primary" onClick={this.toggle} style={{ marginBottom: '1rem' }}>{this.props.obj.recipe_name}</Button> */}
         <Collapse isOpen={this.state.collapse}>
           <Card>
             <CardBody>
-                 <p><span style={{ fontWeight: 'bold' }}>Ingredients:</span> {this.props.obj.ingredients}</p>
-                 {this.props.obj.method.map((m, idx) => <p key={m._id}><span style={{ fontWeight: 'bold' }}>Step #{idx+1}:</span> {m.step}</p>)}
+                 <div className="details"><span style={{ fontWeight: 'bold' }}>Ingredients:</span> {this.props.obj.ingredients}</div>
+                 {this.props.obj.method.map((m, idx) => <div className="details" key={idx}><span style={{ fontWeight: 'bold' }}>Step #{idx+1}:</span> {m.step}</div>)}
                 {/* <button onClick={this.delete} className="btn btn-danger">Delete</button> */}
             </CardBody>
           </Card>
         </Collapse><br/>
-      </div>
+      </React.Fragment>
     );
   }
 }
